@@ -1,0 +1,449 @@
+/* App.css */
+
+/* General reset and background setup */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.main-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Background Image */
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.background-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  opacity: 0.6;
+  animation: fadeIn 1.5s ease-in-out, slideUp 2s ease-out 0.5s;
+  animation-fill-mode: both;
+}
+
+/* Form container with fade-in and zoom-in animation */
+.form-container {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 1s ease-in-out, zoomIn 1.5s ease 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Heading with bounce-in and fade-in effects */
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  animation: bounceIn 1s ease-out, fadeIn 2s ease-in-out 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Input fields with a focus scale-up effect and fade-in from left */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  color: #333;
+  background: #f9f9f9;
+  animation: fadeInLeft 0.7s ease-out, zoomIn 1s ease-in-out 0.3s;
+  animation-fill-mode: both;
+}
+
+/* Sequential animations for inputs */
+input[type="text"] {
+  animation-delay: 0.5s;
+}
+
+input[type="email"] {
+  animation-delay: 0.7s;
+}
+
+input[type="password"] {
+  animation-delay: 0.9s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  transform: scale(1.05);
+}
+
+/* Error messages with shake effect and fade-in */
+.error {
+  color: #ff4d4d;
+  font-size: 0.85em;
+  margin-bottom: 10px;
+  text-align: left;
+  animation: shake 0.5s ease, fadeInLeft 0.7s ease-in-out 0.5s;
+  animation-fill-mode: both;
+}
+
+/* Buttons with hover bounce effect and fade-in-up */
+button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  animation: fadeInUp 0.8s ease, zoomIn 1s ease-in-out 1s;
+  animation-fill-mode: both;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: translateY(-5px);
+}
+
+/* Sequential animation for toggle button */
+.toggle-btn {
+  margin-top: 20px;
+  background-color: #6c757d;
+  animation: fadeInUp 0.8s ease, zoomIn 1.5s ease 1.5s;
+  animation-fill-mode: both;
+}
+
+.toggle-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-5px);
+}
+
+/* Password strength indicator with fade-in animation */
+.password-strength {
+  display: flex;
+  margin-bottom: 15px;
+  animation: fadeInRight 0.8s ease, slideUp 1s ease 1.7s;
+  animation-fill-mode: both;
+}
+
+.strength-indicator {
+  flex: 1;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+  margin-right: 5px;
+  animation: fadeIn 0.7s ease-in-out, zoomIn 1s ease-in-out 1.9s;
+}
+
+.strength-indicator.strong {
+  background: #28a745;
+}
+
+/* Loading spinner with spin animation */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #007BFF;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite, fadeIn 1s ease-in-out 2s;
+}
+
+/* Success animation with zoom-in effect */
+.success-animation {
+  text-align: center;
+  color: #28a745;
+  font-size: 1.5rem;
+  font-weight: bold;
+  animation: zoomIn 1s ease-in-out, fadeInUp 1.5s ease 2.2s;
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Profile Page Container */
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Profile Header (Image Section) */
+.profile-header {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #3498db;
+  transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05); /* Zoom-in effect on hover */
+}
+
+.change-picture {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3498db;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.change-picture:hover {
+  color: #2980b9;
+}
+
+/* Profile Info Section */
+.profile-info {
+  margin-top: 20px;
+}
+
+.profile-info h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.profile-info p {
+  font-size: 16px;
+  color: #666;
+  margin: 5px 0;
+}
+
+/* Edit Mode Input Fields */
+.profile-info input,
+.profile-info textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.profile-info input:focus,
+.profile-info textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.profile-info textarea {
+  resize: none;
+  height: 80px;
+}
+
+/* Buttons */
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* Password Strength Indicator */
+.password-strength {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.strength-indicator {
+  width: 25px;
+  height: 5px;
+  background-color: #ddd;
+  margin: 0 2px;
+  border-radius: 2px;
+}
+
+.strength-indicator.strong {
+  background-color: #2ecc71; /* Strong password indicator */
+}
+
+/* Dark/Light Mode Toggle */
+.dark-mode {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+.light-mode {
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Animations */
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Slide-up animation */
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bounce-in animation */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Shake animation for error */
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20%, 60% {
+    transform: translateX(-10px);
+  }
+  40%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+/* Fade-in from left */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in from right */
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in from bottom */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Zoom-in animation */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Spinner */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
